@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     SeekBar seekbar;
     TextView soju;
     TextView beer;
+    TextView cup;
     int cup_size = 0;
     int soju_time = 0;
     int beer_time = 0;
@@ -28,8 +29,9 @@ public class MainActivity extends AppCompatActivity {
         seekbar = (SeekBar)findViewById(R.id.seekBar);
         soju = (TextView)findViewById(R.id.textView4);
         beer = (TextView)findViewById(R.id.textView6);
+        cup = (TextView)findViewById(R.id.textView);
 
-        ImageButton cup_samll = (ImageButton)findViewById(R.id.imageButton1) ;
+        final ImageButton cup_samll = (ImageButton)findViewById(R.id.imageButton1) ;
         ImageButton cup_medium = (ImageButton)findViewById(R.id.imageButton2) ;
         ImageButton cup_large = (ImageButton)findViewById(R.id.imageButton3) ;
 
@@ -52,6 +54,8 @@ public class MainActivity extends AppCompatActivity {
                 cup_size = 50;
                 soju_time = 50;
                 beer_time = 50;
+                cup.setText("50ml 잔을 선택");
+
             }
         }) ;
 
@@ -60,6 +64,8 @@ public class MainActivity extends AppCompatActivity {
                 cup_size = 180;
                 soju_time = 50;
                 beer_time = 50;
+
+                cup.setText("180ml 잔을 선택");
             }
         }) ;
 
@@ -69,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
                 cup_size = 300;
                 soju_time = 50;
                 beer_time = 50;
+                cup.setText("300ml 잔을 선택");
             }
         }) ;
 
