@@ -186,7 +186,7 @@
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=" Copyright 2017. hyunkyung all rights reserved."
+        android:text="  Copyright 2017. hyunkyung all rights reserved."
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_alignStart="@+id/textView2" />

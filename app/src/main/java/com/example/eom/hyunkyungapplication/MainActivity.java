@@ -16,6 +16,10 @@ public class MainActivity extends AppCompatActivity {
     TextView soju;
     TextView beer;
     TextView cup;
+
+    int ratio_soju = 0;
+    int ratio_beer = 0;
+
     int cup_size = 0;
     int soju_time = 0;
     int beer_time = 0;
@@ -41,9 +45,10 @@ public class MainActivity extends AppCompatActivity {
 
         seekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             public void onProgressChanged(SeekBar seekbar, int progress, boolean fromUser) {
-                int tmp = 10-progress;
+                ratio_soju = progress;
+                ratio_beer = 10 - progress;
                 soju.setText("   "+ progress + "");
-                beer.setText("   "+ tmp + "");
+                beer.setText("   "+ ratio_beer + "");
             }
             public void onStartTrackingTouch(SeekBar seekBar) {}
             public void onStopTrackingTouch(SeekBar seekBar) {}
@@ -55,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
                 soju_time = 50;
                 beer_time = 50;
                 cup.setText("50ml 잔을 선택");
-
+//계싼 알고리즘 사용해서 ~~ 이렇구 저렇구~~
             }
         }) ;
 
