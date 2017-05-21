@@ -57,21 +57,22 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/imageButton1"
-        android:layout_centerVertical="true"
         android:text="비율"
-        android:textSize="20pt" />
+        android:textSize="20pt"
+        android:layout_below="@+id/imageButton1"
+        android:layout_marginTop="29dp"
+        android:layout_alignStart="@+id/imageButton1" />
 
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="45dp"
         android:text="PayMent"
-        android:textSize="12pt" />
+        android:textSize="12pt"
+        android:layout_marginTop="32dp"
+        android:layout_below="@+id/linearLayout"
+        android:layout_centerHorizontal="true" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -108,22 +109,19 @@
             app:srcCompat="@drawable/beer" />
 
     </LinearLayout>
-    
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="11dp"
-        android:text="CUPSIZE"
-        android:textSize="12pt"
-        android:layout_above="@+id/textView2"
+        android:layout_below="@+id/imageButton2"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/imageButton2" />
+        android:text="CUPSIZE"
+        android:textSize="12pt" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
         android:orientation="horizontal"
         android:weightSum="6"
         android:id="@+id/linearLayout"
@@ -173,7 +171,14 @@
 
     </LinearLayout>
 
-
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/cau"
+        android:layout_marginTop="36dp"
+        android:layout_alignTop="@+id/button"
+        android:layout_alignParentStart="true" />
 
 
 </RelativeLayout>
