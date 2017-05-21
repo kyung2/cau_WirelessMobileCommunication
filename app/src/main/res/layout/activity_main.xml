@@ -26,8 +26,9 @@
         android:scaleType="centerCrop"
         app:srcCompat="@drawable/cup_50"
         android:background="#ffffff"
-        android:layout_above="@+id/textView"
-        android:layout_alignEnd="@+id/textView1" />
+        android:layout_below="@+id/textView1"
+        android:layout_alignStart="@+id/textView1"
+        android:layout_marginTop="18dp" />
 
     <ImageButton
         android:id="@+id/imageButton2"
@@ -107,14 +108,24 @@
             app:srcCompat="@drawable/beer" />
 
     </LinearLayout>
-
+    
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="11dp"
+        android:text="CUPSIZE"
+        android:textSize="12pt"
+        android:layout_above="@+id/textView2"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/imageButton2" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:orientation="horizontal"
-        android:weightSum="9"
+        android:weightSum="6"
         android:id="@+id/linearLayout"
         android:layout_below="@+id/linearLayout2"
         android:layout_alignParentStart="true">
@@ -134,7 +145,7 @@
             android:id="@+id/textView4"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="3"
+            android:layout_weight="1"
             android:gravity="center|left"
             android:text="   5"
             android:textSize="10pt" />
@@ -144,7 +155,7 @@
             android:id="@+id/textView5"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
+            android:layout_weight="1"
             android:gravity="right"
             android:text="맥주"
             android:textSize="12pt" />
@@ -155,21 +166,14 @@
             android:id="@+id/textView6"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="3"
+            android:layout_weight="2"
             android:text="   5"
             android:textSize="10pt" />
 
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="11dp"
-        android:text="CUPSIZE"
-        android:layout_above="@+id/textView2"
-        android:layout_centerHorizontal="true" />
+
 
 
 </RelativeLayout>
