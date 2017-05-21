@@ -75,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
                 cup_size = 300;
                 soju_time = 50;
                 beer_time = 50;
+
                 cup.setText("300ml 잔을 선택");
             }
         }) ;

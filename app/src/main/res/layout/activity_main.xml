@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ffffff"
+
     tools:context="com.example.eom.hyunkyungapplication.MainActivity">
 
 
@@ -173,12 +174,22 @@
 
     <ImageView
         android:id="@+id/imageView3"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:srcCompat="@drawable/cau"
+
+        android:layout_marginBottom="24dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/cau"
-        android:layout_marginTop="36dp"
-        android:layout_alignTop="@+id/button"
-        android:layout_alignParentStart="true" />
+        android:text=" Copyright 2017. hyunkyung all rights reserved."
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_alignStart="@+id/textView2" />
 
 
 </RelativeLayout>
