@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         beer = (TextView)findViewById(R.id.textView6);
         cup = (TextView)findViewById(R.id.textView);
 
-        final ImageButton cup_samll = (ImageButton)findViewById(R.id.imageButton1) ;
+        final ImageButton cup_small = (ImageButton)findViewById(R.id.imageButton1) ;
         ImageButton cup_medium = (ImageButton)findViewById(R.id.imageButton2) ;
         ImageButton cup_large = (ImageButton)findViewById(R.id.imageButton3) ;
 
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
             public void onStopTrackingTouch(SeekBar seekBar) {}
         });
 
-        cup_samll.setOnClickListener(new Button.OnClickListener() {
+        cup_small.setOnClickListener(new Button.OnClickListener() {
             @Override public void onClick(View view) {
                 cup_size = 1;
                 soju_time = 50;
