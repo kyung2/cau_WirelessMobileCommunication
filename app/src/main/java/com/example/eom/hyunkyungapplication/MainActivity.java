@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     TextView soju;
     TextView beer;
     TextView cup;
+    //hello
 
     int ratio_soju = 0;
     int ratio_beer = 0;
