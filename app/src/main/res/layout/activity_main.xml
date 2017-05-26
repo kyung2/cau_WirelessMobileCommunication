@@ -77,7 +77,7 @@
         android:textColor="#ffffff"
         android:textSize="10pt"
         android:layout_above="@+id/imageView3"
-        android:layout_alignEnd="@+id/textView"
+        android:layout_centerHorizontal="true"
         android:layout_marginBottom="13dp" />
 
     <LinearLayout
@@ -107,7 +107,7 @@
 
         <ImageView
             android:id="@+id/imageView2"
-            android:layout_width="50dp"
+            android:layout_width="45dp"
             android:layout_height="60dp"
             android:layout_weight="2"
             app:srcCompat="@drawable/beer" />
@@ -175,6 +175,7 @@
 
     </LinearLayout>
 
+    <!--아래공간 채우는 용도  -->
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="match_parent"
