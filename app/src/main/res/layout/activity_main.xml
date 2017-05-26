@@ -88,11 +88,12 @@
         android:id="@+id/linearLayout2"
         android:layout_below="@+id/textView2"
         android:layout_alignParentStart="true">
+
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="45dp"
             android:layout_height="match_parent"
-            android:maxHeight="40dp"
+            android:maxHeight="120px"
             app:srcCompat="@drawable/soju" />
 
         <SeekBar
@@ -108,7 +109,7 @@
         <ImageView
             android:id="@+id/imageView2"
             android:layout_width="45dp"
-            android:layout_height="60dp"
+            android:layout_height="120px"
             android:layout_weight="2"
             app:srcCompat="@drawable/beer" />
 
@@ -179,7 +180,8 @@
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
+
         app:srcCompat="@drawable/cau"
 
         android:layout_above="@+id/textView8"
