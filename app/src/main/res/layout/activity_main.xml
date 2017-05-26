@@ -60,7 +60,7 @@
         android:layout_height="wrap_content"
         android:text="비율"
         android:textSize="20pt"
-        android:layout_below="@+id/textView"
+        android:layout_centerVertical="true"
         android:layout_alignStart="@+id/imageButton1" />
 
 
@@ -71,13 +71,13 @@
         android:text="술 ㄱㄱ"
         android:height="50dp"
         android:width="100dp"
+        android:layout_centerHorizontal="true"
         android:textAlignment="center"
         android:background="#2196f3"
         android:textColor="#ffffff"
         android:textSize="10pt"
-        android:layout_marginBottom="27dp"
-        android:layout_above="@+id/textView8"
-        android:layout_centerHorizontal="true" />
+        android:layout_marginTop="26dp"
+        android:layout_below="@+id/linearLayout" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -87,31 +87,33 @@
         android:id="@+id/linearLayout2"
         android:layout_below="@+id/textView2"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="14dp">
+        android:layout_marginTop="11dp">
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="45dp"
-            android:layout_height="120px"
-            android:scaleType="centerInside"
+            android:layout_height="60dp"
+            android:maxHeight="40dp"
+            android:layout_marginLeft="15dp"
             app:srcCompat="@drawable/soju" />
+
 
         <SeekBar
             android:id="@+id/seekBar"
-            android:layout_width="match_parent"
+            android:layout_width="258dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_weight="10.16"
             android:max="10"
-            android:progress="5" />
+            android:progress="5"
+            android:layout_weight="10.16" />
 
 
         <ImageView
             android:id="@+id/imageView2"
             android:layout_width="45dp"
-            android:layout_height="120px"
-            android:scaleType="centerInside"
+            android:layout_height="60dp"
             android:layout_weight="2"
+            android:layout_marginRight="10dp"
             app:srcCompat="@drawable/beer" />
 
     </LinearLayout>
@@ -120,10 +122,11 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="CUPSIZE"
+        android:textSize="12pt"
         android:layout_below="@+id/imageButton2"
         android:layout_centerHorizontal="true"
-        android:text="CUPSIZE"
-        android:textSize="12pt" />
+        android:layout_marginTop="14dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
