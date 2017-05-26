@@ -60,8 +60,7 @@
         android:layout_height="wrap_content"
         android:text="비율"
         android:textSize="20pt"
-        android:layout_below="@+id/imageButton1"
-        android:layout_marginTop="29dp"
+        android:layout_below="@+id/textView"
         android:layout_alignStart="@+id/imageButton1" />
 
 
@@ -76,9 +75,9 @@
         android:background="#2196f3"
         android:textColor="#ffffff"
         android:textSize="10pt"
-        android:layout_above="@+id/imageView3"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="13dp" />
+        android:layout_marginBottom="27dp"
+        android:layout_above="@+id/textView8"
+        android:layout_centerHorizontal="true" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -87,29 +86,31 @@
         android:weightSum="10"
         android:id="@+id/linearLayout2"
         android:layout_below="@+id/textView2"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="14dp">
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="45dp"
-            android:layout_height="match_parent"
-            android:maxHeight="120px"
+            android:layout_height="120px"
+            android:scaleType="centerInside"
             app:srcCompat="@drawable/soju" />
 
         <SeekBar
             android:id="@+id/seekBar"
-            android:layout_width="258dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_weight="10.16"
             android:max="10"
-            android:progress="5"
-            android:layout_weight="10.16" />
+            android:progress="5" />
 
 
         <ImageView
             android:id="@+id/imageView2"
             android:layout_width="45dp"
             android:layout_height="120px"
+            android:scaleType="centerInside"
             android:layout_weight="2"
             app:srcCompat="@drawable/beer" />
 
@@ -177,15 +178,6 @@
     </LinearLayout>
 
     <!--아래공간 채우는 용도  -->
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-
-        app:srcCompat="@drawable/cau"
-
-        android:layout_above="@+id/textView8"
-        android:layout_alignParentStart="true" />
 
     <TextView
         android:id="@+id/textView8"
