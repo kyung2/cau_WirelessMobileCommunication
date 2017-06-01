@@ -12,6 +12,9 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="43dp"
         android:text="주문하러가기"
+        android:background="#2196f3"
+        android:textColor="#ffffff"
+        android:textSize="10pt"
         android:layout_above="@+id/button3_two_button"
         android:layout_centerHorizontal="true" />
 
@@ -22,5 +25,8 @@
         android:layout_alignEnd="@+id/button2_two_button"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="56dp"
+        android:background="#2196f3"
+        android:textColor="#ffffff"
+        android:textSize="10pt"
         android:text="어플리케이션 정보" />
 </RelativeLayout>
