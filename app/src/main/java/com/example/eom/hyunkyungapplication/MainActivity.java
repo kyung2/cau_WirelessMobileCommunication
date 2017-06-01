@@ -140,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
                             // Add the name and address to an array adapter to show in a ListView
                             mArrayAdapter.add(device.getName() + "\n" + device.getAddress());
                             Log.d("Bluetooth", device.getName() + "\n" + device.getAddress());
-//                            if (device.getName().equals("DEVICENAME")) {
+                            if (device.getName().equals("somac")) {
 
                                 String to_send = "" + cup_size;
                                 if (ratio_soju == 10) {
@@ -152,7 +152,7 @@ public class MainActivity extends AppCompatActivity {
 
                                 thread = new ConnectThread(device, to_send);
                                 thread.start();
-//                            }
+                            }
                         }
                     } else {
                         IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
@@ -210,6 +210,7 @@ public class MainActivity extends AppCompatActivity {
                     // until it succeeds or throws an exception
                     mmSocket.connect();
                     mmSocket.getOutputStream().write(to_send.getBytes());
+                    mmSocket.close();
                     mHandler.post(new Runnable() {
                         @Override
                         public void run() {
@@ -217,14 +218,14 @@ public class MainActivity extends AppCompatActivity {
                                 dialog.dismiss();
                             }
                             Toast.makeText(MainActivity.this,"주문이 성공했습니다.",Toast.LENGTH_SHORT).show();
-                            finish();
+//                            finish();
                         }
                     });
 
                     return;
                 } catch (IOException connectException) {
                     // Unable to connect; close the socket and get out
-                    connectException.printStackTrace();
+//                    connectException.printStackTrace();
                     try {
                         mmSocket.close();
                     } catch (IOException closeException) {
@@ -267,7 +268,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        thread.cancel();
+        try {
+            thread.cancel();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
 
