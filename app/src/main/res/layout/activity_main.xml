@@ -17,7 +17,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="20dp"
         android:layout_marginTop="30dp"
-        android:text="병사이즈"
+        android:text="잔 크기"
         android:textSize="20pt" />
 
     <ImageButton
