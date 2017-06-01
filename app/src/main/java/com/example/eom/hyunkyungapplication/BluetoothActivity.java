@@ -49,24 +49,29 @@ import java.util.UUID;
  */
 public class BluetoothActivity extends AppCompatActivity {
 
-    ArrayList<String> mArrayAdapter = new ArrayList<>();
-    public static final String TAG = "BluetoothActivity";
+    public static final String TAG = "BTActivity";
     public static final int REQUEST_ENABLE_BT = 1;
     // Whether the Log Fragment is currently shown
-    private boolean mLogShown;
     BluetoothAdapter mBluetoothAdapter;
-    UUID myUUID = null;
     ConnectThread thread;
+    ArrayList<String> mArrayAdapter = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bluethooth);
-        myUUID = getDeviceUUID(this);
-        mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         Intent intent = getIntent();
         int cupsize = intent.getIntExtra("cupsize",1);
         int soju_ratio = intent.getIntExtra("sojuratio",5);
-        String to_send = ""+cupsize+""+((soju_ratio==10)?'a':soju_ratio)+"|";
+        String to_send = ""+cupsize;
+        if(soju_ratio==10){
+            to_send+="a";
+        }else{
+            to_send+=soju_ratio;
+        }
+        to_send+="|";
+        Log.d(TAG,to_send);
+
+        mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         if (mBluetoothAdapter == null) {
             // Device does not support Bluetooth
         }
@@ -75,15 +80,16 @@ public class BluetoothActivity extends AppCompatActivity {
             startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
         }
         Set<BluetoothDevice> pairedDevices = mBluetoothAdapter.getBondedDevices();
-// If there are paired devices
         if (pairedDevices.size() > 0) {
             // Loop through paired devices
             for (BluetoothDevice device : pairedDevices) {
                 // Add the name and address to an array adapter to show in a ListView
                 mArrayAdapter.add(device.getName() + "\n" + device.getAddress());
                 Log.d("Bluetooth",device.getName() + "\n" + device.getAddress());
-                thread= new ConnectThread(device,to_send);
-                thread.start();
+//                if(device.getName().equals("DEVICENAME")) {
+                    thread = new ConnectThread(device, to_send);
+                    thread.start();
+//                }
             }
         }else{
             IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
@@ -102,7 +108,15 @@ public class BluetoothActivity extends AppCompatActivity {
         }catch (Exception e){
         }
     }
-
+    @Override
+    protected void onStop() {
+        super.onStop();
+        try {
+            thread.cancel();
+            unregisterReceiver(mReceiver);
+        }catch (Exception e){
+        }
+    }
 
     private class ConnectThread extends Thread {
         private  BluetoothSocket mmSocket;
@@ -114,9 +128,6 @@ public class BluetoothActivity extends AppCompatActivity {
             mmDevice = device;
             this.to_send = to_send;
             // Get a BluetoothSocket to connect with the given BluetoothDevice
-
-
-
         }
 
         public void run() {
@@ -125,7 +136,6 @@ public class BluetoothActivity extends AppCompatActivity {
             while(true) {
                 BluetoothSocket tmp = null;
                 try {
-                    // MY_UUID is the app's UUID string, also used by the server code
                     tmp = mmDevice.createRfcommSocketToServiceRecord(UUID.fromString("00001101-0000-1000-8000-00805F9B34FB"));
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -145,7 +155,6 @@ public class BluetoothActivity extends AppCompatActivity {
                     } catch (IOException closeException) {
                         closeException.printStackTrace();
                     }
-//                    return;
                 }
             }
 
@@ -193,33 +202,4 @@ public class BluetoothActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private final static String CACHE_DEVICE_ID = "CacheDeviceID";
-
-    public  UUID getDeviceUUID(Context context) {
-        UUID deviceUUID = null;
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
-        String cachedDeviceID = sharedPreferences.getString(CACHE_DEVICE_ID, "");
-        if (cachedDeviceID != "") {
-            deviceUUID = UUID.fromString(cachedDeviceID);
-        } else {
-            final String androidUniqueID = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
-            try {
-                if (androidUniqueID != "") {
-                    deviceUUID = UUID.nameUUIDFromBytes(androidUniqueID.getBytes("utf8"));
-                } else {
-                    final String anotherUniqueID = ((TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE)).getDeviceId();
-                    if (anotherUniqueID != null) {
-                        deviceUUID = UUID.nameUUIDFromBytes(anotherUniqueID.getBytes("utf8"));
-                    } else {
-                        deviceUUID = UUID.randomUUID();
-                    }
-                }
-            } catch (UnsupportedEncodingException e) {
-                throw new RuntimeException(e);
-            }
-        }
-// save cur UUID.
-        sharedPreferences.edit().putString(CACHE_DEVICE_ID, deviceUUID.toString()).apply();
-        return deviceUUID;
-    }
 }
